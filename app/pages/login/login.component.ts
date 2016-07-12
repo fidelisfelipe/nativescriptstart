@@ -23,6 +23,8 @@ export class LoginPage implements OnInit {
 	private user: User;
 	constructor( private _router: Router, private _userService: UserService, private page: Page) {
 		this.user = new User();
+		this.user.email = "user@nativescript.org";
+		this.user.password = "password";
 	}
 
 	ngOnInit() {
@@ -33,11 +35,13 @@ export class LoginPage implements OnInit {
 	login() {
 	console.log('sign in...');
 	this.isLoggingIn = true;
-	  this._userService.login(this.user)
+	this._router.navigate(["/list"]);
+/*	this._userService.login(this.user)
 		.subscribe(
 		  () => this._router.navigate(["/list"]),
 		  (error) => alert("Unfortunately we could not find your account.")
-		);
+	);
+*/
 	}
 
 	toggleDisplay () {
