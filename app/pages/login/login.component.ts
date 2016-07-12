@@ -33,9 +33,9 @@ export class LoginPage implements OnInit {
 	}
 
 	login() {
-	console.log('sign in...');
-	this.isLoggingIn = true;
-	this._router.navigate(["/list"]);
+		console.log('sign in...');
+		this.isLoggingIn = true;
+		this._router.navigate(["/list"]);
 /*	this._userService.login(this.user)
 		.subscribe(
 		  () => this._router.navigate(["/list"]),
@@ -66,6 +66,11 @@ export class LoginPage implements OnInit {
 	}
 
 	submit(){
+		if (!this.user.isValidEmail()) {
+			alert("Enter a valid email address.");
+			return;
+		}
+	
 		if (this.isLoggingIn) {
 			this.login();
 		} else {

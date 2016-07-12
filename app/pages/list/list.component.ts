@@ -12,14 +12,25 @@ import {TextField} from "ui/text-field";
 export class ListPage implements OnInit {
   groceryList: Array<Grocery> = [];//Array<Grocery> = [];
   grocery: string = "";
+  isLoading = false;
+  listLoaded = false;
   @ViewChild("groceryTextField") groceryTextField: ElementRef;
 constructor(private _groceryListService: GroceryListService) {}
 
   ngOnInit() {
 	console.log('onInit list...');
 	this.grocery = "";
+	this.isLoading = true;
+
+		
+	  this._groceryListService.load()
+		.forEach((groceryObject) => {
+			this.groceryList.unshift(groceryObject);
+		});
+		console.log('delay init');
+		this.isLoading = false;
+		this.listLoaded = true;
 	
-    this.groceryList.push(new Grocery("test", "Bananas"));
 
 /*
   this._groceryListService.load()

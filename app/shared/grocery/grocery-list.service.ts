@@ -8,8 +8,15 @@ import "rxjs/add/operator/map";
 @Injectable()
 export class GroceryListService {
   constructor(private _http: Http) {}
-
+	groceryList:Array<Grocery> = [];
   load() {
+	  
+	  this.groceryList.push(new Grocery("test", "Bananas"));
+	  this.groceryList.push(new Grocery("test", "Oranges"));
+	  this.groceryList.push(new Grocery("test", "Tomato"));
+	  this.groceryList.push(new Grocery("test", "GoldBerry"));
+	  return this.groceryList;
+/*
     let headers = new Headers();
     headers.append("Authorization", "Bearer " + Config.token);
 
@@ -25,6 +32,7 @@ export class GroceryListService {
       return groceryList;
     })
     .catch(this.handleErrors);
+*/
   }
 
 	handleErrors(error: Response) {
