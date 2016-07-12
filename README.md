@@ -11,7 +11,11 @@ This branch contains the starting point for NativeScript’s [TypeScript & Angul
 	tns platform add ios
 	
 	tns run android --emulator
-	
+##development
+	tns livesync android --emulator --watch
+###images build
+	http://nsimage.brosteins.com/
+
 #TypeScript
 	mkdir projectWithGulp && cd projectWithGulp && mkdir src && mkdir dist
 
