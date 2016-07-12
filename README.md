@@ -13,6 +13,9 @@ This branch contains the starting point for NativeScript’s [TypeScript & Angul
 	tns run android --emulator
 ##development
 	tns livesync android --emulator --watch
+###add plugins
+	validator-email: npm install email-validator --save
+	social-share: tns plugin add nativescript-social-share
 ###images build
 	http://nsimage.brosteins.com/
 
